@@ -1,0 +1,21 @@
+:root {
+  --bg: #0b0c0f;
+  --panel: #111318;
+  --muted: #8a91a2;
+  --text: #e9ecf1;
+  --brand: #6aa7ff;
+  --brand-2: #9b7bff;
+  --border: #1e2230;
+  --link: #c5d7ff;
+  --code-bg: #0f1219;
+  --code-border: #1b2233;
+  --shadow: 0 10px 30px rgba(0,0,0,.35);
+}
+
+body { margin: 0; font-family: system-ui; background: var(--bg); color: var(--text); }
+.wrap { display: grid; grid-template-columns: 260px 1fr; min-height: 100vh; }
+#navbar { background: var(--panel); padding: 1rem; }
+.nav-link { display: block; margin: .25rem 0; padding: .5rem; border-radius: .4rem; color: var(--text); }
+.nav-link:hover { background: rgba(106,167,255,.2); }
+main { padding: 2rem; }
+pre { background: var(--code-bg); border: 1px solid var(--code-border); padding: 1rem; border-radius: .5rem; overflow: auto; }

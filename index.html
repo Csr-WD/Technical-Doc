@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>JavaScript Technical Documentation</title>
+  <meta name="description" content="Concise, modern JavaScript technical documentation with a polished, responsive layout." />
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="visually-hidden" href="#main-doc">Skip to main content</a>
+  <div class="wrap">
+    <!-- ===== Sidebar ===== -->
+    <nav id="navbar" aria-label="Section navigation">
+      <div class="brand" role="banner">
+        <div class="dot" aria-hidden="true"></div>
+        <div>
+          <h1>JavaScript Technical Docs</h1>
+          <small class="muted">Concise. Modern. Practical.</small>
+        </div>
+      </div>
+      <div class="nav-group" role="navigation">
+        <a class="nav-link" href="#Introduction">Introduction</a>
+        <a class="nav-link" href="#Basic_Syntax">Basic Syntax</a>
+        <a class="nav-link" href="#Data_Types">Data Types</a>
+        <a class="nav-link" href="#Functions">Functions</a>
+        <a class="nav-link" href="#DOM_and_Events">DOM and Events</a>
+      </div>
+    </nav>
+
+    <!-- ===== Main ===== -->
+    <main id="main-doc" tabindex="-1">
+      <div class="page-intro">
+        <p class="muted">This page is a compact set of notes you can use as a refresher or as a primer for new teammates. It follows modern best practices and includes accessible navigation, responsive layout, and polished code blocks.</p>
+      </div>
+
+      <section class="main-section" id="Introduction" aria-labelledby="intro-h">
+        <h2 class="section-title" id="intro-h">Introduction</h2>
+        <p>JavaScript is a versatile programming language that runs in the browser and on servers (via Node.js). In a web page you add it with a <code>&lt;script&gt;</code> tag to make content interactive and dynamic.</p>
+        <p>Modern sites load scripts without blocking rendering using <code>defer</code> or <code>type="module"</code>. Verify execution quickly via DevTools Console with <code>console.log()</code>.</p>
+      </section>
+
+      <section class="main-section" id="Basic_Syntax" aria-labelledby="basic-h">
+        <h2 class="section-title" id="basic-h">Basic Syntax</h2>
+        <p>Use <code>let</code> and <code>const</code> to declare variables; prefer <code>const</code> for bindings you won’t reassign. Variables are block-scoped inside <code>{ }</code>, avoiding leaks to outer scopes.</p>
+        <p>Statements may end with a semicolon <code>;</code> (ASI exists, but being explicit is safer). Single-line comments start with <code>//</code>, and multi-line comments use <code>/* ... */</code>.</p>
+      </section>
+
+      <section class="main-section" id="Data_Types" aria-labelledby="types-h">
+        <h2 class="section-title" id="types-h">Data Types</h2>
+        <p>JavaScript has primitive and reference types. The <code>typeof</code> operator inspects values: for example, <code>typeof 42 === "number"</code> and <code>typeof "hello" === "string"</code>. Objects and arrays are reference types (assigned and compared by reference).</p>
+        <p>Two special values are <code>undefined</code> (declared but not assigned) and <code>null</code> (explicit “no value”). Historical quirk: <code>typeof null === "object"</code>.</p>
+        <ul>
+          <li>Number – numeric values like <code>3.14</code> or <code>-2</code></li>
+          <li>String – text like <code>"hello"</code></li>
+          <li>Boolean – <code>true</code> or <code>false</code></li>
+          <li>Null – explicit empty value: <code>null</code></li>
+          <li>Undefined – unassigned value: <code>undefined</code></li>
+        </ul>
+      </section>
+
+      <section class="main-section" id="Functions" aria-labelledby="fn-h">
+        <h2 class="section-title" id="fn-h">Functions</h2>
+        <p>A function is a reusable block of code. You can define one with a declaration or an expression. Declarations are hoisted (callable before they appear), expressions are not. Use <code>function</code> and <code>return</code> to define behavior and produce a value.</p>
+        <p>Arrow functions use the <code>=&gt;</code> syntax and have lexical <code>this</code>. They’re concise and support implicit returns for single expressions. Prefer them for short callbacks; keep declarations for named, reusable APIs.</p>
+        <pre><code>function greet(name) {
+  return 'Hi ' + name;
+}
+
+const double = (n) =&gt; n * 2;</code></pre>
+      </section>
+
+      <section class="main-section" id="DOM_and_Events" aria-labelledby="dom-h">
+        <h2 class="section-title" id="dom-h">DOM and Events</h2>
+        <p>The DOM is a tree that represents your HTML. Select elements with <code>document.querySelector()</code> and update properties like <code>textContent</code>, <code>className</code>, or attributes via <code>setAttribute()</code>.</p>
+        <p>Events let the page react to user actions. Use <code>addEventListener()</code> with events like <code>click</code>, <code>input</code>, or <code>keydown</code>. Call <code>event.preventDefault()</code> to stop default behavior; use event delegation for dynamic UIs.</p>
+        <pre><code>const btn = document.querySelector('#demo-btn');
+const output = document.querySelector('#demo-out');
+
+btn.addEventListener('click', () =&gt; {
+  output.textContent = 'Button clicked!';
+});</code></pre>
+        <div class="grid" style="margin-top:.5rem">
+          <div style="grid-column: span 6;">
+            <button id="demo-btn" class="to-top" style="position:static">Run Demo</button>
+          </div>
+          <div id="demo-out" style="grid-column: span 6; padding:.6rem 0; color: var(--brand);"></div>
+        </div>
+      </section>
+
+      <p class="footer">Tip: Copy any code block with a triple-click, then paste into your editor. This page is fully responsive and supports dark/light mode automatically.</p>
+    </main>
+  </div>
+
+  <a class="to-top" href="#navbar" aria-label="Back to top">↑ Top</a>
+
+  <script src="script.js"></script>
+</body>
+</html>
